@@ -11,7 +11,7 @@ class ClaudeAccountSync < Formula
   depends_on "python@3.13"
 
   def install
-    rewrite_shebang python_shebang_rewrite_info(Formula["python@3.13"].opt_bin/"python3.13"), "claude-account-sync"
+    rewrite_shebang python_shebang_rewrite_info(formula_opt_bin("python@3.13")/"python3.13"), "claude-account-sync"
     bin.install "claude-account-sync"
   end
 
