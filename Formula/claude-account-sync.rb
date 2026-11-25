@@ -1,4 +1,6 @@
 class ClaudeAccountSync < Formula
+  include Language::Python::Shebang
+
   desc "Sync Claude desktop Code sessions and scheduled tasks between accounts"
   homepage "https://github.com/NiekNijland/claude-desktop-account-sync"
   url "https://github.com/NiekNijland/claude-desktop-account-sync/archive/refs/tags/v0.1.0.tar.gz"
@@ -9,7 +11,7 @@ class ClaudeAccountSync < Formula
   depends_on "python@3.13"
 
   def install
-    rewrite_shebang detected_python_shebang(use_python_from_path: false), "claude-account-sync"
+    rewrite_shebang python_shebang_rewrite_info(Formula["python@3.13"].opt_bin/"python3.13"), "claude-account-sync"
     bin.install "claude-account-sync"
   end
 
